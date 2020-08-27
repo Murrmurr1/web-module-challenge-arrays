@@ -117,13 +117,17 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(a){
-    let b = a.indexOf(prompt("Which flavor would you like to remove?"))
-    
-    a.splice(b, 1)
-    console.log(a)
+let remFlav = prompt("What flavor would you like to remove?")
 
+function removeFlavorByName(a, b){
+    for (let i = 0; i < a.length; i++) {
+    if (a[i] === b) {
+      a.splice([i], 1)
+    }
+  } console.log(a)
 }
+
+removeFlavorByName(originalFlavors, remFlav)
 
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
@@ -156,11 +160,23 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(/*code here*/){
+let promoFlav = prompt("What flavor(s)?")
 
-    /*code here*/
+function filterByWord(a, b){
 
+    for (let i = 0; i < a.length; i++) {
+        //Uses variable i to cycle through the whole array by comparing it's value to the value of the array.length
+      if (a[i].includes(b) === true) {
+        //If the index of a includes the flavor asked, iterate the loop
+        let filteredArray = [a[i]]
+        //Turns the returned value into an array
+        console.log(filteredArray)
+        //Logs the array
+      }
+    }
 }
+
+ filterByWord(originalFlavors, promoFlav)
 
 
 
