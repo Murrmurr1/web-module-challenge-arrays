@@ -40,9 +40,14 @@ To save you from having to count the items above, you can assume that length of 
 
 i.e. is31Flavors(originalFlavors) will return TRUE.*/
 
-function is31Flavors(/*code here*/){
-
-    /*code here*/
+function is31Flavors(a){
+    let b = a.length;
+    if (b === 31) {
+        return true;
+    } else {
+        return false;
+    }
+    
 
 }
 
@@ -57,9 +62,11 @@ Your function should add the flavor to the front of the array and console.log th
 
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
-function addFlavor(/*code here*/){
+function addFlavor(a){
 
-    /*code here*/
+    let newFlav = prompt("Enter the new flavor here:")
+    a.unshift(newFlav)
+    console.log(a)
 
 }
 
@@ -74,9 +81,10 @@ Your function should remove a flavor from the end of the array and console.log t
 
 For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]*/ 
 
-function removeLastFlavor(/*code here*/){
+function removeLastFlavor(a){
 
-    /*code here*/
+    a.pop()
+    console.log(a)
 
 }
 
@@ -89,9 +97,10 @@ Your function should accept:
 
 For example, getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully. */
 
-function getFlavorByIndex(/*code here*/){
+function getFlavorByIndex(a){
 
-    /*code here*/
+    let findItem = prompt("Which item would you like me to locate?")
+    console.log("You have selected " + originalFlavors[findItem])
 
 }
 
@@ -108,11 +117,17 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(/*code here*/){
+let remFlav = prompt("What flavor would you like to remove?")
 
-    /*code here*/
-
+function removeFlavorByName(a, b){
+    for (let i = 0; i < a.length; i++) {
+    if (a[i] === b) {
+      a.splice([i], 1)
+    }
+  } console.log(a)
 }
+
+removeFlavorByName(originalFlavors, remFlav)
 
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
@@ -123,9 +138,10 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-function copy(/*code here*/){
+function copy(a){
 
-    /*code here*/
+    let flavCopy = [...a]
+    console.log(flavCopy)
 
 }
 
@@ -144,11 +160,23 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(/*code here*/){
+let promoFlav = prompt("What flavor(s)?")
 
-    /*code here*/
+function filterByWord(a, b){
 
+    for (let i = 0; i < a.length; i++) {
+        //Uses variable i to cycle through the whole array by comparing it's value to the value of the array.length
+      if (a[i].includes(b) === true) {
+        //If the index of a includes the flavor asked, iterate the loop
+        let filteredArray = [a[i]]
+        //Turns the returned value into an array
+        console.log(filteredArray)
+        //Logs the array
+      }
+    }
 }
+
+ filterByWord(originalFlavors, promoFlav)
 
 
 
